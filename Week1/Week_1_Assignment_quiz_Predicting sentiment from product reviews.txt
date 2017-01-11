@@ -1,0 +1,160 @@
+100% correct on first submission.
+
+Predicting sentiment from product reviews
+
+12 questions
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+1. 
+How many weights are greater than or equal to 0?
+
+------------------------------------------------------------------------
+68419
+
+------------------------------------------------------------------------
+2. 
+Of the three data points in sample_test_data, which one has the lowest probability of being classified as a positive review?
+
+First
+
+Second
+
+Third
+------------------------------------------------------------------------
+probabilities =  [0.9988123848377203, 0.0032232681817996604, 4.261557996653291e-07]
+index of min position =  2
+answer = Third data point 
+------------------------------------------------------------------------
+3. 
+Which of the following products are represented in the 20 most positive reviews?
+
+Snuza Portable Baby Movement Monitor  [NO]
+
+MamaDoo Kids Foldable Play Yard Mattress Topper, Blue [NO]
+
+Britax Decathlon Convertible Car Seat, Tiffany  [YES]
+
+Safety 1st Exchangeable Tip 3 in 1 Thermometer  [NO]
+------------------------------------------------------------------------
+Britax Decathlon Convertible Car Seat, Tiffany
+Ameda Purely Yours Breast Pump - Carry All
+Traveling Toddler Car Seat Travel Accessory
+Shermag Glider Rocker Combo, Pecan with Oatmeal
+Cloud b Sound Machine Soother, Sleep Sheep
+JP Lizzy Chocolate Ice Classic Tote Set
+Fisher-Price Rainforest Melodies and Lights Deluxe Gym
+Lilly Gold Sit 'n' Stroll 5 in 1 Car Seat and Stroller Combination, Tuxedo Black (sunshade is not included in the offering)
+Fisher-Price Deluxe Jumperoo
+North States Supergate Pressure Mount Clear Choice Wood Gate
+Munchkin Mozart Magic Cube
+Britax Marathon Convertible Car Seat, Granite
+Wizard Convertible Car Seat with LATCH in Midnight Print
+Capri Stroller - Red Tech
+Peg Perego Primo Viaggio Car Seat / Infant Carrier with LATCH Base - Black Sable
+HALO SleepSack Micro-Fleece Wearable Blanket, Soft Pink, Small
+Leachco Snoogle Total Body Pillow
+Summer Infant Complete Nursery Care Kit
+Safety 1st Tot-Lok Four Lock Assembly
+BABYBJORN Potty Chair - Red
+------------------------------------------------------------------------
+4. 
+Which of the following products are represented in the 20 most negative reviews?
+
+The First Years True Choice P400 Premium Digital Monitor, 2 Parent Unit  [YES]
+
+JP Lizzy Chocolate Ice Classic Tote Set  [NO]
+
+Peg-Perego Tatamia High Chair, White Latte  [YES]
+
+Safety 1st High-Def Digital Monitor  [YES]
+------------------------------------------------------------------------
+Jolly Jumper Arctic Sneak A Peek Infant Car Seat Cover Black
+Levana Safe N'See Digital Video Baby Monitor with Talk-to-Baby Intercom and Lullaby Control (LV-TW501)
+Snuza Portable Baby Movement Monitor
+Fisher-Price Ocean Wonders Aquarium Bouncer
+VTech Communications Safe &amp; Sounds Full Color Video and Audio Monitor
+Safety 1st High-Def Digital Monitor
+Chicco Cortina KeyFit 30 Travel System in Adventure
+Prince Lionheart Warmies Wipes Warmer
+Valco Baby Tri-mode Twin Stroller EX- Hot Chocolate
+Adiri BPA Free Natural Nurser Ultimate Bottle Stage 1 White, Slow Flow (0-3 months)
+Munchkin Nursery Projector and Sound System, White
+The First Years True Choice P400 Premium Digital Monitor, 2 Parent Unit
+Nuby Natural Touch Silicone Travel Infa Feeder, Colors May Vary, 3 Ounce
+Peg-Perego Tatamia High Chair, White Latte
+Fisher-Price Royal Potty
+Safety 1st Exchangeable Tip 3 in 1 Thermometer
+Safety 1st Lift Lock and Swing Gate
+Evenflo Take Me Too Premiere Tandem Stroller - Castlebay
+Cloth Diaper Sprayer--styles may vary
+The First Years 3 Pack Breastflow Bottle, 9 Ounce
+------------------------------------------------------------------------
+5. 
+What is the accuracy of the sentiment_model on the test_data? Round your answer to 2 decimal places (e.g. 0.76).
+
+Enter answer here
+------------------------------------------------------------------------
+0.91
+------------------------------------------------------------------------
+6. 
+Does a higher accuracy value on the training_data always imply that the classifier is better?
+
+Yes, higher accuracy on training data always implies that the classifier is better.
+
+No, higher accuracy on training data does not necessarily imply that the classifier is better.
+------------------------------------------------------------------------
+No
+------------------------------------------------------------------------
+7. 
+Consider the coefficients of simple_model. There should be 21 of them, an intercept term + one for each word in significant_words.
+
+How many of the 20 coefficients (corresponding to the 20 significant_words and excluding the intercept term) are positive for the simple_model?
+
+Enter answer here
+------------------------------------------------------------------------
+10
+------------------------------------------------------------------------
+8. 
+Are the positive words in the simple_model also positive words in the sentiment_model?
+
+Yes
+
+No
+------------------------------------------------------------------------
+YES
+------------------------------------------------------------------------
+9. 
+Which model (sentiment_model or simple_model) has higher accuracy on the TRAINING set?
+
+Sentiment_model
+
+Simple_model
+------------------------------------------------------------------------
+Sentiment_model
+------------------------------------------------------------------------
+10. 
+Which model (sentiment_model or simple_model) has higher accuracy on the TEST set?
+
+Sentiment_model
+
+Simple_model
+------------------------------------------------------------------------
+Sentiment_model
+------------------------------------------------------------------------
+11. 
+Enter the accuracy of the majority class classifier model on the test_data. Round your answer to two decimal places (e.g. 0.76).
+
+Enter answer here
+------------------------------------------------------------------------
+0.84
+------------------------------------------------------------------------
+12. 
+Is the sentiment_model definitely better than the majority class classifier (the baseline)?
+
+Yes
+
+No
+------------------------------------------------------------------------
+Yes
+------------------------------------------------------------------------

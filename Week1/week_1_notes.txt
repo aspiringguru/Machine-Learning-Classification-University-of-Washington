@@ -1,0 +1,22 @@
+adaboost
+
+schapire
+https://en.wikipedia.org/wiki/Robert_Schapire
+
+boosting algorythm
+
+precision recall
+
+schocastic gradient - difficult and finnicky to work well
+
+sentiment analysis
+
+hyperplane
+
+score function
+
+if score = 0 then classifier can be +1 or -1. lecturer says he uses +1 
+
+
+
+

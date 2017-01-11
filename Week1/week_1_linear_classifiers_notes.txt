@@ -1,0 +1,11 @@
+https://www.coursera.org/learn/ml-classification/lecture/HNKIj/linear-classifiers-a-motivating-example
+
+positive or negative sentiment.
+
+https://www.coursera.org/learn/ml-classification/lecture/lCBwS/intuition-behind-linear-classifiers
+
+hyperplane separating +ive and -ive values. 
+hyperplane is associated with score function
+
+score = W0 + W1 #awesome _ W2 #awful + W3 #great
+

@@ -1,0 +1,81 @@
+
+
+Linear Classifiers & Logistic Regression
+
+5 questions
+---------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------
+1. 
+(True/False) A linear classifier assigns the predicted class based on the sign of Score(x)=wTh(x).
+
+True
+
+False
+---------------------------------------------------------------------------------
+slide 26.
+y^ = sign(score(Xi))
+
+Score(Xi) = W0 + w1.Xi[1] + .... + Wd.Xi[d]
+
+answer = TRUE. [CORRECT]
+
+
+---------------------------------------------------------------------------------
+2. 
+(True/False) For a conditional probability distribution over y|x, where y takes on two values (+1, -1, i.e. good review, bad review) P(y=+1|x)+P(y=−1|x)=1.
+
+True
+
+False
+---------------------------------------------------------------------------------
+complimentry probability P(A|B) + P(A|!B) = 1.0
+answer = TRUE  [CORRECT]
+
+---------------------------------------------------------------------------------
+3. 
+Which function does logistic regression use to “squeeze” the real line to [0, 1]?
+
+Logistic function
+
+Absolute value function
+
+Zero function
+---------------------------------------------------------------------------------
+
+from lecture 'Predicting class probabilities with (generalized) linear models'
+https://www.coursera.org/learn/ml-classification/lecture/OV5Kt/predicting-class-probabilities-with-generalized-linear-models
+
+ The magic that glues, that links this range minus infinity, plus infinity to the range 0,1 is called a link function, so it links the two. I'm going to take the score, which is between minus infinity and plus infinity, I'm going to push it through a function g that squeezes that huge line into the interval 0, 1.  And uses it to predict the probability that y equals +1. And when you're taking a linear model, w transpose h minus infinity to plus infinity and you're squeezing it into 0, 1 using link functions you are building what's called a generalized linear model. So, if somebody stops you in the street today and asks you what's a generalized linear model? Say no problem. It's just like a regression model, but you squeeze it into 0, 1 by pushing through a link function. So it's a little abstract. We're going to talk about it in the context of logistic regression which is a specific type of link function. 
+
+
+answer = 'Logistic function'  [CORRECT]
+---------------------------------------------------------------------------------
+4. 
+If Score(x)=wTh(x)>0, which of the following is true about P(y=+1|x)?
+
+P(y = +1 | x) <= 0.5
+
+P(y = +1 | x) > 0.5
+
+Can’t say anything about P(y = +1 | x)
+---------------------------------------------------------------------------------
+
+answer = P(y = +1 | x) > 0.5  [CORRECT]
+---------------------------------------------------------------------------------
+5. 
+Consider training a 1 vs. all multiclass classifier for the problem of digit recognition using logistic regression. There are 10 digits, thus there are 10 classes. How many logistic regression classifiers will we have to train?
+
+Enter answer here
+---------------------------------------------------------------------------------
+refer slide 77-
+lecture Multiclass classification with 1 versus all
+https://www.coursera.org/learn/ml-classification/lecture/N7QA6/multiclass-classification-with-1-versus-all
+
+nb: andrew NG lecture includes this question as a quiz within the lecture
+https://www.coursera.org/learn/machine-learning/lecture/68Pol/multiclass-classification-one-vs-all
+
+answer = 10  [CORRECT]
+
+---------------------------------------------------------------------------------

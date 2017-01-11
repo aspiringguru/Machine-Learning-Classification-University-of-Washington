@@ -1,0 +1,104 @@
+
+https://www.coursera.org/learn/ml-classification/lecture/HNKIj/linear-classifiers-a-motivating-example
+start at slide 1.
+
+https://www.coursera.org/learn/ml-classification/lecture/lCBwS/intuition-behind-linear-classifiers
+start @ slide 6
+
+
+
+
+https://www.coursera.org/learn/ml-classification/lecture/OV5Kt/predicting-class-probabilities-with-generalized-linear-models
+
+start at slide 48, 49
+
+above line : score < 0
+below line : score > 0
+
+slide 52 @ 3:34  'link function' converts score to Probability
+Generalized linear model - just like a regression model but squeezed into range 0-1 by pushing through a link function.
+
+slide 51 @ 3:20
+link function
+
+
+https://www.coursera.org/learn/ml-classification/lecture/KXvGC/the-sigmoid-or-logistic-link-function
+
+slide 54
+
+logistic function = sigmoid, logit
+
+score  |  -infinity   | -2  |0.0   | +2    | + infinity
+---------------------------------------------------------
+
+
+https://www.coursera.org/learn/ml-classification/lecture/KXvGC/the-sigmoid-or-logistic-link-function
+
+slide 56
+                         -score
+sigmoid (score) = 1/(1+e^        )
+
+https://www.coursera.org/learn/ml-classification/lecture/OJQXu/logistic-regression-model
+
+slide 57
+
+
+
+slide 66 : likelihood function
+best classifier = maximize quality metric over all possible W0, W1, W2
+
+quality metric = likelihood L(w)
+
+will use gradient ascent algorithm to find the set of parameters w which has highest likelihood best quality.
+
+
+
+https://www.coursera.org/learn/ml-classification/lecture/kCY0D/encoding-categorical-inputs
+
+categorical <> numeric inputs.
+NB: some features can be numerical and categorical. ie: postcodes.
+categories are often available as strings. (ie "male" / 'female')
+we need to encode category as numeric.
+
+
+encoding categories 
+
+
+https://www.coursera.org/learn/ml-classification/lecture/N7QA6/multiclass-classification-with-1-versus-all
+
+slide 73
+multiclass classification
+
+
+https://www.coursera.org/learn/ml-classification/lecture/laPcB/recap-of-logistic-regression-classifier
+slide 81
+
+
+NB: lecture by Andrew Ng from Stanford.
+https://www.coursera.org/learn/machine-learning/lecture/68Pol/multiclass-classification-one-vs-all
+and notes
+https://www.coursera.org/learn/machine-learning/supplement/HuE6M/multiclass-classification-one-vs-all
+
+multiclass classification.
+
+
+binary classification (two possible classes)
+multi-class classificaiton (multiple classes)
+
+1 vs all classification : 
+Class 1
+Class 2
+Class 3
+turn into three separate classification problems.
+
+problem 1: classify into class 1 or class 2-3
+problem 2: classify into class 2 or class 1-3
+problem 3: classify into class 3 or class 1-2
+
+in a multi class classification problem with k classes, 
+a 1-vs-all method will require k different logistic regression classifies.
+
+-------------
+multiclass classification : one-vs-all
+
+
