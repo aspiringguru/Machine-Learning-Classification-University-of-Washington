@@ -1,0 +1,79 @@
+
+
+https://www.coursera.org/learn/ml-classification/lecture/uxALW/goal-learning-parameters-of-logistic-regression
+
+Goal: Learning parameters of logistic regression
+
+
+linear classifier - uses 
+
+revision of week 1 = slides 1-4
+
+
+https://www.coursera.org/learn/ml-classification/lecture/BXKp8/intuition-behind-maximum-likelihood-estimation
+
+slide 13 - gradient ascent  to find w^
+
+
+https://www.coursera.org/learn/ml-classification/lecture/Qjvns/data-likelihood
+"Data likelihood"
+Slide 14
+
+https://www.coursera.org/learn/ml-classification/lecture/uwmnm/review-of-gradient-ascent
+Review of gradient ascent
+
+
+slide 30.
+
+https://www.coursera.org/learn/ml-classification/lecture/dYFZx/learning-algorithm-for-logistic-regression
+
+Learning algorithm for logistic regression
+
+slide 35.
+Derivative of (log-)likelihood.
+
+
+
+
+
+https://www.coursera.org/learn/ml-classification/lecture/mMJ2j/summary-of-gradient-ascent-for-logistic-regression
+Summary of gradient ascent for logistic regression
+slide 38
+
+
+
+https://www.coursera.org/learn/ml-classification/lecture/vFhWy/choosing-step-size
+Choosing step size
+
+slide 43
+
+
+compare convergence with different step sizes
+- if step size is larger - early oscillation but gets better result at end.
+
+
+
+https://www.coursera.org/learn/ml-classification/lecture/MVzEy/careful-with-step-sizes-that-are-too-large
+
+Careful with step sizes that are too large
+
+if step size is too big, oscillations decrease but never quite converges?
+
+
+https://www.coursera.org/learn/ml-classification/lecture/hzxFS/rule-of-thumb-for-choosing-step-size
+
+"Rule of thumb for choosing step size"
+slide 47
+
+picking step size requires trial & error
+try exponentially spaced step sizes.
+find one step size that is too small - smooth but too slow to converge.
+find one step size that is too large - oscilates too much.
+
+
+
+
+https://www.coursera.org/learn/ml-classification/lecture/A0OjE/recap-of-learning-logistic-regression-classifiers
+
+Recap of learning logistic regression classifiers
+
