@@ -11,10 +11,11 @@ Overfitting & Regularization in Logistic Regression
 Consider four classifiers, whose classification performance is given by the following table:
 
 Classification error on training set	Classification error on validation set
-Classifier 1	0.2	0.6
-Classifier 2	0.8	0.6
-Classifier 3	0.2	0.2
-Classifier 4	0.5	0.4
+Classifier 1	0.2	                    0.6
+Classifier 2	0.8	                    0.6
+Classifier 3	0.2	                    0.2
+Classifier 4	0.5	                    0.4
+
 Which of the four classifiers is most likely overfit?
 
 Classifier 1
@@ -25,16 +26,26 @@ Classifier 3
 
 Classifier 4
 -------------------------------------------------------------------------
+If classification error on validation set >> classification error on training set.
+then likely overfit.
 
+Classifier 1 : validation error 3x training error
+Classifier 2 : validation error < training error
+Classifier 3 : validation error = training error
+Classifier 4 : validation error < training error
 
+answer = Classifier 1 [CORRECT]
 -------------------------------------------------------------------------
 2. 
 Suppose a classifier classifies 23100 examples correctly and 1900 examples incorrectly. Compute accuracy by hand. Round your answer to 3 decimal places.
 
 Enter answer here
 -------------------------------------------------------------------------
-
-
+accuracy = correct
+           ----------------------
+           total numer of data points
+0 < accuracy < 1.0
+accuracy = 23100/(23100 + 1900) = 0.924 [CORRECT]
 -------------------------------------------------------------------------
 3. 
 (True/False) Accuracy and error measured on the same dataset always sum to 1.
@@ -43,11 +54,26 @@ True
 
 False
 -------------------------------------------------------------------------
+correct = sum of correct classifications
+mistakes = sum of incorrect classifications
 
+error = mistakes
+        --------------------
+        total number of data points
+
+
+accuracy = correct
+           ----------------------
+           total number of data points
+
+accuracy + error = 1.0
+0 < accuracy < 1.0
+
+answer = TRUE [CORRECT]
 
 -------------------------------------------------------------------------
 4. 
-Which of the following is NOT a correct description of complex models?
+Which of the following is ___NOT___ a correct description of complex models?
 
 Complex models accommodate many features.
 
@@ -59,7 +85,12 @@ Complex models tend to exhibit high variance in response to perturbation in the 
 
 Complex models tend to exhibit low bias, capturing many patterns in the training data that simple models may have missed.
 -------------------------------------------------------------------------
-
+attempt 1 [CORRECT]
+[TRUE] Complex models accommodate many features.  
+[TRUE] Complex models tend to produce lower training error than simple models.
+[FALSE] Complex models tend to generalize better than simple models.
+[TRUE] Complex models tend to exhibit high variance in response to perturbation in the training data.
+[TRUE] Complex models tend to exhibit low bias, capturing many patterns in the training data that simple models may have missed.
 
 -------------------------------------------------------------------------
 5. 
@@ -75,54 +106,121 @@ Complex decision boundary
 
 Overconfident predictions of class probabilities
 -------------------------------------------------------------------------
+[TRUE]Large estimated coefficients
+[FALSE]Good generalization to previously unseen data
+[FALSE]Simple decision boundary
+[TRUE]Complex decision boundary
+[TRUE]Overconfident predictions of class probabilities
 
+[CORRECT!!!]
 
 -------------------------------------------------------------------------
 6. 
-Suppose we perform L2 regularized logistic regression to fit a sentiment classifier. Which of the following plots does NOT describe a possible coefficient path? Choose all that apply.
+Suppose we perform L2 regularized logistic regression to fit a sentiment classifier. Which of the following plots does ___NOT___ describe a possible coefficient path? Choose all that apply.
 
 Note. Assume that the algorithm runs for a wide range of L2 penalty values and each coefficient plot is zoomed out enough to capture all long-term trends.
 
+[diagrams do not copy past to text]
+-------------------------------------------------------------------------
 
 
 
+1 - coefficients do not converge to zero as L2 approaches infinity
+2 - coefficients approach zero as L2 approaches infinity, coefficients may cross from positive to negative
+3 - coefficients converge straight line to zero, stay at zero
+4 - _some_ coefficients converge toward zero before infinity, then approx infinity positive
 
 
 
 -------------------------------------------------------------------------
+slide 72 of lecture H_5_Sparse logistic regression with L1 regularization @ 4:55
+'coefficients never become exactly zero.'
 
+NB: L2 penalty - Can become _EXACTLY_ zero. refer slide 73 @ 5:29
 
+------------------------------------------------------------------------
+refer slides 72, 73
+
+1st and 3rd choice are shown in lecture
+2nd and 4th choice are not shown in lecture
+[ANSWER IS WRONG!!]
+[still getting the same answer after rewatching lectures.]
+
+[WRONG AGAIN 20-1 6pm]
+
+[wrong 24-1]
+
+------------------
+q6: attempt 24-1
+- L2 - does not become exaclty zero as lambda becomes large.
+option 1 does this - NO
+option 2 does this - NO
+option 3 does become zero - [selected]
+option 4 does not convert towards zero and diverge from zero as lambda becomes large. [selected]
+[submitted 24-1 2pm]
 -------------------------------------------------------------------------
 7. 
-Suppose we perform L1 regularized logistic regression to fit a sentiment classifier. Which of the following plots does NOT describe a possible coefficient path? Choose all that apply.
+Suppose we perform L1 regularized logistic regression to fit a sentiment classifier. Which of the following plots does __NOT__ describe a possible coefficient path? Choose all that apply.
 
 Note. Assume that the algorithm runs for a wide range of L1 penalty values and each coefficient plot is zoomed out enough to capture all long-term trends.
 
-
+[diagrams do not copy past to text]
 
 
 
 
 -------------------------------------------------------------------------
-
-
+attempt 24-1. NOT describe a possible L1 coefficient path
+option 1 : zig zag = not a possible
+option 2 : converges to zero - is a possible.
+option 3 : converges to zero, one element crosses from positive to negative before converging to stable zero - possible
+option 4 : converges toward zero, never reaches zero.
+-------------------------------------------------------
+checked 1 & 4 checked because these are not possible
+option 2 & 3 unchecked because these _ARE_ possible.
+[CORRECT!!!]
 -------------------------------------------------------------------------
 8. 
 In the context of L2 regularized logistic regression, which of the following occurs as we increase the L2 penalty λ? Choose all that apply.
 
-The L2 norm of the set of coefficients gets smaller
+- The L2 norm of the set of coefficients gets smaller
+- Region of uncertainty becomes narrower, i.e., the classifier makes predictions with higher confidence.
+- Decision boundary becomes less complex
+- Training error decreases
+- The classifier has lower variance
+- Some features are excluded from the classifier
 
-Region of uncertainty becomes narrower, i.e., the classifier makes predictions with higher confidence.
+-------------------------------------------------------------------------
+refer quiz Q8 - need answers to these questions
 
-Decision boundary becomes less complex
+increase lambda = makes model less complex,
+- region of uncertainty becomes wider
+- decision boundary becomes less complex
+- training error increases
+- fewer features required in the classifier
 
-Training error decreases
+refer lecture 'Learning L2 regularized logistic regression with gradient ascent' and slides 54 onwards
+refer slide 52 & slide 54
+as lambda increases
+- decision boundary becomes less complex.
+- range of coefficients becomes smaller.
+- 
 
-The classifier has lower variance
 
-Some features are excluded from the classifier
+
+attempt 1
+[TRUE] The L2 norm of the set of coefficients gets smaller
+[FALSE] Region of uncertainty becomes narrower, i.e., the classifier makes predictions with higher confidence.
+[TRUE] Decision boundary becomes less complex
+[FALSE] Training error decreases
+[TRUE] The classifier has lower variance
+[TRUE] Some features are excluded from the classifier
+[WRONG 20-1 @ 6pm]
+[WRONG 24-1]
 
 -------------------------------------------------------------------------
 
 
--------------------------------------------------------------------------
+L2 coefficients - never become exactly zero with lambda approaching large values or infinity.
+L1 coefficients - do become exactly zero with lambda approaching large values or infinity.
+

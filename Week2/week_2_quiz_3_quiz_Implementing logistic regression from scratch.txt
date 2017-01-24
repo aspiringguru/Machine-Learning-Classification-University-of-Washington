@@ -12,6 +12,7 @@ Enter answer here
 ---------------------------------------------------------------------------------
 2955
 see calc method in notebook.
+products['contains_perfect'] = products['perfect'].apply(lambda x: x>=1)
 ---------------------------------------------------------------------------------
 2. 
 Consider the feature_matrix that was obtained by converting our data to NumPy format.
@@ -20,9 +21,9 @@ How many features are there in the feature_matrix?
 
 Enter answer here
 ---------------------------------------------------------------------------------
-194
+193
 shape of feature_matrix = (53072L, 194L)
-0th column is intercept which is a feature.
+0th column is intercept which is NOT a feature.
 ---------------------------------------------------------------------------------
 3. 
 Assuming that the intercept is present, how does the number of features in feature_matrix relate to the number of features in the logistic regression model? 
@@ -50,7 +51,8 @@ It decreases.
 
 None of the above
 ---------------------------------------------------------------------------------
-
+log likelihood becomes _LESS_ negative, ie: is _INCREASING_ in value.
+ans = It increases.
 ---------------------------------------------------------------------------------
 5. 
 We make predictions using the weights just learned.
@@ -59,14 +61,14 @@ How many reviews were predicted to have positive sentiment?
 
 Enter answer here
 ---------------------------------------------------------------------------------
-
+25126
 ---------------------------------------------------------------------------------
 6. 
 What is the accuracy of the model on predictions made above? (round to 2 digits of accuracy)
 
 Enter answer here
 ---------------------------------------------------------------------------------
-
+0.75
 ---------------------------------------------------------------------------------
 7. 
 We look at "most positive" words, the words that correspond most strongly with positive reviews.
