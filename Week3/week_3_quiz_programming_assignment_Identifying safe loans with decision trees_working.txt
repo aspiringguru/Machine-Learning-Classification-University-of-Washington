@@ -16,8 +16,7 @@ What percentage of the predictions on sample_validation_data did decision_tree_m
 
 100%
 ------------------------------------------------------------------------------------------------------------------
-
-
+Answer = 50% [CORRECT]
 ------------------------------------------------------------------------------------------------------------------
 2. 
 Which loan has the highest probability of being classified as a safe loan?
@@ -30,8 +29,10 @@ Third
 
 Fourth
 ------------------------------------------------------------------------------------------------------------------
+[0.55, 0.49, 0.46, 0.59]
+most likely probability = Fourth.  [CORRECT]
 
-
+NB: in python index of nth position is n-1 since indexed from zero.
 ------------------------------------------------------------------------------------------------------------------
 3. 
 Notice that the probability preditions are the exact same for the 2nd and 3rd loans. Why would this happen?
@@ -39,8 +40,9 @@ Notice that the probability preditions are the exact same for the 2nd and 3rd lo
 During tree traversal both examples fall into the same leaf node.
 
 This can only happen with sheer coincidence.
-1
-point
+------------------------------------------------------------------------------------------------------------------
+ANSWER = During tree traversal both examples fall into the same leaf node.
+------------------------------------------------------------------------------------------------------------------
 4. 
 Based on the visualized tree, what prediction would you make for this data point?
 
@@ -48,26 +50,59 @@ Based on the visualized tree, what prediction would you make for this data point
 
 -1
 ------------------------------------------------------------------------------------------------------------------
-
-
+Answer = -1   [CORRECT]
 ------------------------------------------------------------------------------------------------------------------
 5. 
 What is the accuracy of decision_tree_model on the validation set, rounded to the nearest .01 (e.g. 0.76)?
 
 Enter answer here
-1
-point
+------------------------------------------------------------------------------------------------------------------
+#train_data
+small_model accuracy 		    =  0.61
+decision_tree_model accuracy 	=  0.64
+
+#validation_data
+small_model accuracy 			=  0.62
+decision_tree_model accuracy 	=  0.64
+---------------------------------------
+
+decision_tree_model accuracy on the validation set	=  0.64   [CORRECT]
+
+------------------------------------------------------------------------------------------------------------------
 6. 
 How does the performance of big_model on the validation set compare to decision_tree_model on the validation set? Is this a sign of overfitting?
 
-big_model has higher accuracy on the validation set than decision_tree_model. This is overfitting.
-
-big_model has higher accuracy on the validation set than decision_tree_model. This is not overfitting.
-
-big_model has lower accuracy on the validation set than decision_tree_model. This is overfitting.
-
-big_model has lower accuracy on the validation set than decision_tree_model. This is not overfitting.
+WRONG : big_model has higher accuracy on the validation set than decision_tree_model. This is overfitting.
+FALSE : big_model has higher accuracy on the validation set than decision_tree_model. This is not overfitting.
+TRUE  : big_model has lower accuracy on the validation set than decision_tree_model. This is overfitting.
+FALSE : big_model has lower accuracy on the validation set than decision_tree_model. This is not overfitting.
 ------------------------------------------------------------------------------------------------------------------
+NB: only difference between small_model, big_model & decision_tree_model the max_depth used.
+
+small_model = 2
+big_model = 6 (default)
+decision_tree_model = 10
+
+
+small_model           = graphlab.decision_tree_classifier.create(train_data, validation_set=None,
+                                target = target, features = features, max_depth = 2)
+decision_tree_model   = graphlab.decision_tree_classifier.create(train_data, validation_set=None,
+                                target = target, features = features)
+ big_model            = graphlab.decision_tree_classifier.create(train_data, validation_set=None,
+                                target = target, features = features, max_depth = 10)                               
+
+------------------------------------------------------------
+small_model         accuracy using train_data		=  0.61 NB: smaller than other two models.
+small_model accuracy using validation_data		    =  0.62 NB: odd this is larger than train_data.
+decision_tree_model accuracy using validation_data	=  0.64
+decision_tree_model accuracy using train_data       =  0.64 NB: NO DROP
+big_model accuracy using train_data 		        =  0.67 NB: larger than decision_tree_model
+big_model accuracy using validation_data 	        =  0.63 NB: drop & lower accuracy than decision_tree_model. likely overfitting!!!!
+------------------------------------------------------------
+notes: big_model has higher accuracy than decision_tree_model on training deta, when accuracy of validation_data is compared a drop is noticeable. 
+
+
+ANSWER = TRUE  : big_model has lower accuracy on the validation set than decision_tree_model. This is overfitting. [CORRECT]
 
 
 ------------------------------------------------------------------------------------------------------------------
@@ -81,5 +116,5 @@ What is the total cost of mistakes made by decision_tree_model on validation_dat
 Enter answer here
 ------------------------------------------------------------------------------------------------------------------
 
-
+50280000    [CORRECT]
 ------------------------------------------------------------------------------------------------------------------
