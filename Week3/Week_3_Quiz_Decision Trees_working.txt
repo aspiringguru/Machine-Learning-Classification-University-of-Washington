@@ -1,0 +1,304 @@
+Decision Trees
+
+11 questions
+------------------------------------------------------------------------------------------------------------------
+
+1. 
+Questions 1 to 6 refer to the following common scenario:
+
+Consider the following dataset:
+
+x1	x2	x3	y
+1	1	1	+1
+0	1	0	-1
+1	0	1	-1
+0	0	1	+1
+Let us train a decision tree with this data. Let’s call this tree T1. What feature will we split on at the root?
+
+x1
+
+x2
+
+x3
+------------------------------------------------------------------------------------------------------------------
+first split on x1 : error = 2/4
+assume x1=0 predicts y=+1
+x1	x2	x3	y
+1	1	1	+1
+1	0	1	-1 [error]
+
+0	0	1	+1 [error]
+0	1	0	-1
+NB: if we test x1=0 predicts y=-1 we also get error=2/4
+
+
+first split on x2 : error = 2/4
+assume x2=0 predicts y=+1
+x1	x2	x3	y
+1	1	1	+1
+0	1	0	-1 [error]
+
+1	0	1	-1
+0	0	1	+1 [error]
+NB: if we test x2=0 predicts y=-1 we also get error=2/4
+
+
+first split on x3 : error = 1/4
+assume x3=0 predicts y=+-1
+x1	x2	x3	y
+0	1	0	-1 
+
+1	0	1	-1 [error]
+0	0	1	+1 
+1	1	1	+1 
+
+splitting on x3 @ root yields the lowest number of errors.
+ANSWER = x3
+------------------------------------------------------------------------------------------------------------------
+2. 
+Refer to the dataset presented in Question 1 to answer the following.
+
+Fully train T1 (until each leaf has data points of the same output label). What is the depth of T1?
+
+Enter answer here
+------------------------------------------------------------------------------------------------------------------
+START
+
+split level 1 : 
+
+X3=1
+x1	x2	x3	y
+1	1	1	+1
+0	0	1	+1
+1	0	1	-1
+
+X3=0
+x1	x2	x3	y
+0	1	0	-1
+no further split required on this leaf.
+
+----------
+starting point for this node
+X3=1
+x1	x2	x3	y
+1	1	1	+1
+0	0	1	+1
+1	0	1	-1
+
+split on x2
+x2 =1
+x1	x2	x3	y
+1	1	1	+1
+no further split required on this leaf.
+
+
+x2=0
+x1	x2	x3	y
+0	0	1	+1
+1	0	1	-1
+
+------------------------------
+starting point for this node
+X3=1 & x2=0
+x1	x2	x3	y
+0	0	1	+1
+1	0	1	-1
+
+split on x1
+x1=1 
+x1	x2	x3	y
+1	0	1	-1
+no further split required on this leaf.
+
+x1=0
+x1	x2	x3	y
+0	0	1	+1
+no further split required on this leaf.
+
+
+conclusion: three (3) split levels required : X3, then X2, then X1.
+Answer = 3
+------------------------------------------------------------------------------------------------------------------
+3. 
+Refer to the dataset presented in Question 1 to answer the following.
+
+What is the training error of T1?
+
+Enter answer here
+------------------------------------------------------------------------------------------------------------------
+answer = 0 
+training error is zero since we recursively split until every leaf had one element or 100% accuracy.
+------------------------------------------------------------------------------------------------------------------
+4. 
+Refer to the dataset presented in Question 1 to answer the following.
+
+Now consider a tree T2, which splits on x1 at the root, and splits on x2 in the 1st level, and has leaves at the 2nd level. Note: this is the XOR function on features 1 and 2. What is the depth of T2?
+
+Enter answer here
+------------------------------------------------------------------------------------------------------------------
+depth = number of splits : split on x1 and split on x2 : 2 splits.
+answer = 2.
+
+------------------------------------------------------------------------------------------------------------------
+5. 
+Refer to the dataset presented in Question 1 to answer the following.
+
+What is the training error of T2?
+
+Enter answer here
+------------------------------------------------------------------------------------------------------------------
+slide 26, lecture 'A3_Task of learning decision trees from data'
+
+error = number of incorrect predictions 
+        -------------------------------
+        number of examples.
+
+tree T2: split on x1, then split on x2.
+
+Starting point.
+x1	x2	x3	y
+1	1	1	+1
+0	1	0	-1
+1	0	1	-1
+0	0	1	+1
+
+------------
+split on x1
+
+x1=0
+x1	x2	x3	y
+0	1	0	-1
+0	0	1	+1
+
+
+x1=1
+x1	x2	x3	y
+1	1	1	+1
+1	0	1	-1
+-----------------
+level 2 of tree: split on x2
+
+start from x1=0
+x1	x2	x3	y
+0	1	0	-1
+0	0	1	+1
+
+x1=0 & x2=0
+x1	x2	x3	y
+0	0	1	+1 [correct]
+
+x1=0 & x2=1
+x1	x2	x3	y
+0	1	0	-1 [correct]
+
+
+start from x1=1
+x1	x2	x3	y
+1	1	1	+1
+1	0	1	-1
+
+x1=1 & x2=0
+x1	x2	x3	y
+1	0	1	-1 [correct]
+
+x1=1 & x2=1
+x1	x2	x3	y
+1	1	1	+1 [correct]
+
+4 correct predictions, zero incorrect predictions.
+
+
+------------------------------------------------------------------------------------------------------------------
+6. 
+Refer to the dataset presented in Question 1 to answer the following.
+
+Which has smaller depth, T1 or T2?
+
+T1
+
+T2
+------------------------------------------------------------------------------------------------------------------
+T2 has smaller depth.
+
+NB: simple algorythm chose splitting on x3 first because it gave lower error on first split.
+we see above splitting on x3 from root results in more steps required - slower result, not as good algorythm.
+
+------------------------------------------------------------------------------------------------------------------
+7. 
+Imagine we are training a decision tree, and we are at a node. Each data point is (x1, x2, y), where x1,x2 are features, and y is the label. The data at this node is:
+
+x1	x2	y
+0	1	+1
+1	0	-1
+0	1	+1
+1	1	+1
+Which feature results in the best split?
+
+x1
+
+x2
+------------------------------------------------------------------------------------------------------------------
+
+split on x1, assume x1=0|y=+1, one error.
+x1	x2	y
+0	1	+1 
+0	1	+1
+
+1	0	-1
+1	1	+1 [error]
+
+split on x2, assume x2=0|y=+1, zero errors.
+x1	x2	y
+0	1	+1
+0	1	+1
+1	1	+1
+
+1	0	-1
+
+answer : best split on x2.
+------------------------------------------------------------------------------------------------------------------
+8. 
+Let’s say we have learned a decision tree on dataset D. Consider the split learned at the root of the decision tree. Which of the following is true if one of the data points in D is removed and we re-train the tree?
+
+The split at the root will be different
+
+The split at the root will be exactly the same as before
+
+The split could be the same or could be different
+------------------------------------------------------------------------------------------------------------------
+ANSWER = The split could be the same or could be different
+------------------------------------------------------------------------------------------------------------------
+9. 
+Consider two datasets D1 and D2, where D2 has the same data points as D1, but has an extra feature for each data point. Let T1 be the decision tree trained with D1, and T2 be the tree trained with D2. Which of the following is true?
+
+T2 has better training error than T1
+
+T2 has better test error than T1
+
+Too little information to guarantee anything
+------------------------------------------------------------------------------------------------------------------
+ANSWER = Too little information to guarantee anything
+------------------------------------------------------------------------------------------------------------------
+10. 
+Which of these rules is more appropriate for splitting on real-valued features?
+
+Split using thresholds (e.g., income < 60k or income >= 60k)
+
+Split using numeric values (e.g., income == 60k, or income != 60k)
+
+Neither of the above is appropriate
+------------------------------------------------------------------------------------------------------------------
+ANSWER = Split using thresholds (e.g., income < 60k or income >= 60k)
+NB: split on income = "specific value" is too narrow.
+------------------------------------------------------------------------------------------------------------------
+11. 
+(True/False) Decision stumps (depth 1 decision trees) are always linear classifiers.
+
+True
+
+False
+------------------------------------------------------------------------------------------------------------------
+answer: True.
+depth 1 decision tress can only produce a straight line. thus are linear classifiers.
+------------------------------------------------------------------------------------------------------------------
+
