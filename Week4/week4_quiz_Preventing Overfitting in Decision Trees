@@ -1,0 +1,210 @@
+Preventing Overfitting in Decision Trees
+
+11 questions
+-------------------------------------------------------------------------------------------------------
+
+
+-------------------------------------------------------------------------------------------------------
+1. 
+(True/False) When learning decision trees, smaller depth USUALLY translates to lower training error.
+
+True
+
+False
+-------------------------------------------------------------------------------------------------------
+FALSE [CORRECT]
+more depth reduces training error - refer slide 14 lecture 'overfitting in decision trees'
+
+-------------------------------------------------------------------------------------------------------
+2. 
+(True/False) If no two data points have the same input values, we can always learn a decision tree that achieves 0 training error.
+
+True
+
+False
+-------------------------------------------------------------------------------------------------------
+True   [CORRECT]
+guess... 
+
+-------------------------------------------------------------------------------------------------------
+3. 
+(True/False) If decision tree T1 has lower training error than decision tree T2, then T1 will always have better test error than T2.
+
+True
+
+False
+-------------------------------------------------------------------------------------------------------
+FALSE: if over/underfitted test error will be different.  [CORRECT]
+
+-------------------------------------------------------------------------------------------------------
+4. 
+Which of the following is true for decision trees?
+
+Model complexity increases with size of the data.
+
+Model complexity increases with depth.
+
+None of the above
+-------------------------------------------------------------------------------------------------------
+answer : Model complexity increases with depth.  [CORRECT]
+
+
+-------------------------------------------------------------------------------------------------------
+5. 
+Pruning and early stopping in decision trees is used to
+
+combat overfitting
+
+improve training error
+
+None of the above
+-------------------------------------------------------------------------------------------------------
+"Pruning is a technique in machine learning that reduces the size of decision trees by removing sections of the tree that provide little power to classify instances. Pruning reduces the complexity of the final classifier, and hence improves predictive accuracy by the reduction of overfitting."
+https://en.wikipedia.org/wiki/Pruning_(decision_trees)
+
+ANSWER = combat overfitting   [CORRECT]
+
+-------------------------------------------------------------------------------------------------------
+6. 
+Which of the following is __NOT__ an early stopping method?
+
+FALSE : Stop when the tree hits a certain depth
+
+FALSE : Stop when node has too few data points (minimum node “size”)
+
+FALSE : Stop when every possible split results in the same amount of error reduction
+
+ANSWER : Stop when best split results in too small of an error reduction WRONG
+-------------------------------------------------------------------------------------------------------
+https://en.wikipedia.org/wiki/Early_stopping
+"early stopping is a form of regularization used to avoid overfitting when training a learner with an iterative method, such as gradient descent."
+
+lecture : "Early stopping in learning decision trees"
+slide 35 : stopping condition 1 : 'limit the depth of the tree'
+slide 39 : stopping condition 2 : 'use classification error to limit depth of tree'
+slide 43 : lecture @ 2:40 to 3:00. if tree error is not reducing, stop making  model more complex.
+slide 45 : lecture @ 3:18 ditto
+slide 46 : stopping condition 3 : 'stop if number of data points contained in the node is too small.' 
+(ie: num nodes < Nmin)
+slide 50 : summary of early stopping.
+-----
+Stop when every possible split results in the same amount of error reduction (Sunday 1pm)[CORRECT] this makes sense
+use this^^ when submitting.
+--
+Stop when best split results in too small of an error reduction WRONG : submitted 211pm [WRONG]
+
+-------------------------------------------------------------------------------------------------------
+7. 
+Consider decision tree T1 learned with minimum node size parameter = 1000. Now consider decision tree T2 trained on the same dataset and parameters, except that the minimum node size parameter is now 100. Which of the following is ___ALWAYS__ true?
+
+ : The depth of T2 >= the depth of T1
+
+ : The number of nodes in T2 >= the number of nodes in T1
+
+ : The test error of T2 <= the test error of T1
+
+WRONG : The training error of T2 <= the training error of T1
+-------------------------------------------------------------------------------------------------------
+T1 minimum node size=1,000
+T2 minimum node size=100
+
+"The depth of T2 >= the depth of T1" : This is TRUE. a larger minimum node size causes hte T1 tree to stop dividing earlier than T2 tree. T2 tree will have greater depth.
+
+"The number of nodes in T2 >= the number of nodes in T1" : This is TRUE. T1 tree will stop dividing earlier than T2 tree.
+
+"The test error of T2 <= the test error of T1" : FALSE!!
+This would be true for the training error. More nodes would reduce the size of remaining training errors. At worst, there will be more nodes with same total error on training.
+Test error may or may not be T2 <= T1. Overfitting is possible.
+
+The training error of T2 <= the training error of T1 : This will be TRUE. see above.
+
+
+ANSWER Sunday 2pm : The training error of T2 <= the training error of T1 [WRONG]
+-------------------------------------------------------------------------------------------------------
+8. 
+Questions 8 to 11 refer to the following common scenario:
+
+Imagine we are training a decision tree, and we are at a node. Each data point is (x1, x2, y), where x1,x2 are features, and y is the label. The data at this node is:
+
+x1	x2	y
+0	1	+1
+1	0	+1
+0	1	+1
+1	1	-1
+What is the classification error at this node (assuming a majority class classifier)?
+
+Enter answer here
+-------------------------------------------------------------------------------------------------------
+
+x1	x2	y
+0	1	+1 (duplicate of row 3)
+1	0	+1 
+0	1	+1 (duplicate of row 1)
+1	1	-1 
+
+three values of y = +1, one value of y=-1.
+error = 1/4 = 0.25
+
+answer = 0.25  [CORRECT]
+
+-------------
+majority class classifier.
+
+
+-------------------------------------------------------------------------------------------------------
+9. 
+Refer to the scenario presented in Question 8.
+
+If we split on x1, what is the classification error?
+
+Enter answer here
+-------------------------------------------------------------------------------------------------------
+x1	x2	y
+0	1	+1
+1	0	+1
+0	1	+1
+1	1	-1
+
+split on x1. conclude when x1=0, y=1. when x1=0, y=-1 with 1/4 error.
+
+x1	x2	y
+0	1	+1
+0	1	+1
+--
+1	1	-1
+1	0	+1 
+error = 0.25   [CORRECT]
+
+
+-------------------------------------------------------------------------------------------------------
+10. 
+Refer to the scenario presented in Question 8.
+
+If we split on x2, what is the classification error?
+
+Enter answer here
+-------------------------------------------------------------------------------------------------------
+x1	x2	y
+0	1	+1
+0	1	+1
+1	1	-1 
+---
+1	0	+1 
+
+
+attempt 2 = 0.25  [CORRECT!!! why???]
+
+-------------------------------------------------------------------------------------------------------
+11. 
+Refer to the scenario presented in Question 8.
+
+If our parameter for minimum gain in error reduction is 0.1, do we split or stop early?
+
+Split
+
+Stop early
+-------------------------------------------------------------------------------------------------------
+Stop early : since we can get 0.25 error if we stop after splitting on x1.  [CORRECT]
+
+
+-------------------------------------------------------------------------------------------------------
