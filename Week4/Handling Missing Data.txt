@@ -1,0 +1,105 @@
+Handling Missing Data
+
+7 questions
+-----------------------------------------------------------------------------------------------------------
+https://www.coursera.org/learn/ml-classification/exam/fEDCt/handling-missing-data
+-----------------------------------------------------------------------------------------------------------
+1. 
+(True/False) Skipping data points (i.e., skipping rows of the data) that have missing features only works when the learning algorithm we are using is decision tree learning.
+
+True
+
+False
+-----------------------------------------------------------------------------------------------------------
+attempt 1: False [CORRECT]
+-----------------------------------------------------------------------------------------------------------
+2. 
+What are potential downsides of skipping features with missing values (i.e., skipping columns of the data) to handle missing data? (select all that are true)
+
+So many features are skipped that accuracy can degrade
+
+The learning algorithm will have to be modified
+
+You will have fewer data points (i.e., rows) in the dataset
+
+If an input at prediction time has a feature missing that was always present during training, this approach is not applicable.
+-----------------------------------------------------------------------------------------------------------
+attempt 1 : WRONG!
+TRUE - So many features are skipped that accuracy can degrade
+- The learning algorithm will have to be modified
+TRUE - You will have fewer data points (i.e., rows) in the dataset
+TRUE - If an input at prediction time has a feature missing that was always present during training, this approach is not applicable.
+--------------------------------------
+attempt 2 : [CORRECT]
+TRUE - So many features are skipped that accuracy can degrade
+FALSE - The learning algorithm will have to be modified
+FALSE - You will have fewer data points (i.e., rows) in the dataset
+TRUE - If an input at prediction time has a feature missing that was always present during training, this approach is not applicable.
+-----------------------------------------------------------------------------------------------------------
+3. 
+(True/False) It’s always better to remove missing data points (i.e., rows) as opposed to removing missing features (i.e., columns).
+
+True
+
+False
+-----------------------------------------------------------------------------------------------------------
+ANSWER : FALSE (depends on proportion of data missing in rows/columns) [CORRECT]
+-----------------------------------------------------------------------------------------------------------
+4. 
+Consider a dataset with N training points. After imputing missing values, the number of data points in the data set is
+
+2 * N
+
+N
+
+5 * N
+-----------------------------------------------------------------------------------------------------------
+ANSWER : N [CORRECT]
+-----------------------------------------------------------------------------------------------------------
+5. 
+Consider a dataset with D features. After imputing missing values, the number of features in the data set is
+
+2 * D
+
+D
+
+0.5 * D
+-----------------------------------------------------------------------------------------------------------
+ANSWER : D [CORRECT]
+-----------------------------------------------------------------------------------------------------------
+6. 
+Which of the following are always true when imputing missing data? __Select all that apply.__
+
+Imputed values can be used in any classification algorithm
+
+Imputed values can be used when there is missing data at prediction time
+
+Using imputed values results in higher accuracies than skipping data points or skipping features
+-----------------------------------------------------------------------------------------------------------
+attempt 3 : [CORRECT]
+Which of the following are always true when imputing missing data? __Select all that apply.__
+
+TRUE : Imputed values can be used in any classification algorithm
+TRUE : Imputed values can be used when there is missing data at prediction time
+FALSE : Using imputed values results in higher accuracies than skipping data points or skipping features
+
+
+refer slide 20 @ 3'04" in lecture 'E2_Strategy 1 Purification by skipping missing data'.
+refer lecture 'E3_Strategy 2 Purification by imputing missing data'
+refer slide 32.
+- can be used at prediction time, use same imputation rules.
+- lecture mentions imputation has plus & potential to introduce terrible biases. 
+(example given of washington state ages not provided in loan application data.)
+https://en.wikipedia.org/wiki/Imputation_(statistics)
+-----------------------------------------------------------------------------------------------------------
+7. 
+Consider data that has binary features (i.e. the feature values are 0 or 1) with some feature values of some data points missing. When learning the best feature split at a node, how would we best modify the decision tree learning algorithm to handle data points with missing values for a feature?
+
+We choose to assign missing values to the branch of the tree (either the one with feature value equal to 0 or with feature value equal to 1) that minimizes classification error.
+
+We assume missing data always has value 0.
+
+We ignore all data points with missing values.
+-----------------------------------------------------------------------------------------------------------
+attempt 1 : We choose to assign missing values to the branch of the tree (either the one with feature value equal to 0 or with feature value equal to 1) that minimizes classification error. [CORRECT]
+-----------------------------------------------------------------------------------------------------------

@@ -1,0 +1,6 @@
+
+
+refer lecture 'E3_Strategy 2 Purification by imputing missing data' slide 30.
+"In statistics, an expectation–maximization (EM) algorithm is an iterative method to find maximum likelihood or maximum a posteriori (MAP) estimates of parameters in statistical models, where the model depends on unobserved latent variables."
+https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm
+
