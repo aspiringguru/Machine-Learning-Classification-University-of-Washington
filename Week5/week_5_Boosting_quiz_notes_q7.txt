@@ -1,0 +1,17 @@
+https://www.coursera.org/learn/ml-classification/discussions/weeks/5/threads/yrtUnu3KEeavDRL9DbMJZA
+
+Mentor · 6 hours ago
+
+Hello, you can go through the following lecture for review of how to calculate weighted error
+
+https://www.coursera.org/learn/ml-classification/lecture/vR1RK/weighted-error
+
+The answer basically involves the following steps
+
+    Identify the majority class(which class has the higher total weight?) and predict that class as the label for all the data points.
+    Calculate the sum of weights of data points where the the prediction made in step 1 is wrong.
+    Calculate the sum of weights of all the data points.
+    Calculate the weighted error. 
+
+Feel free to reply if you need more help. All the best!
+---------------------------------------------------------------------------------------------------

@@ -1,0 +1,312 @@
+Boosting
+
+11 questions
+----------------------------------------------------------------------------------
+
+
+----------------------------------------------------------------------------------
+1. 
+
+Which of the following is NOT an ensemble method?
+
+Gradient boosted trees
+
+AdaBoost
+
+Random forests
+
+Single decision trees
+----------------------------------------------------------------------------------
+answer : Single decision trees  [CORRECT]
+
+
+Gradient boosted trees [is an ensemble method.]
+AdaBoost [is an ensemble method.]
+Random forests  [is an ensemble method.]
+Single decision trees [not an ensemble method.]
+---------
+
+notes.
+https://en.wikipedia.org/wiki/Ensemble_learning
+In statistics and machine learning, ensemble methods use multiple learning algorithms to obtain better predictive performance than could be obtained from any of the constituent learning algorithms alone.
+
+https://en.wikipedia.org/wiki/Gradient_boosting
+Gradient boosting is a machine learning technique for regression and classification problems, which produces a prediction model in the form of an ensemble of weak prediction models, typically decision trees. It builds the model in a stage-wise fashion like other boosting methods do, and it generalizes them by allowing optimization of an arbitrary differentiable loss function.
+
+https://en.wikipedia.org/wiki/Random_forest
+Random forests or random decision forests[1][2] are an ensemble learning method for classification, regression and other tasks, that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random decision forests correct for decision trees' habit of overfitting to their training set.
+
+https://en.wikipedia.org/wiki/Decision_tree_learning
+Decision tree learning uses a decision tree as a predictive model which maps observations about an item (represented in the branches) to conclusions about the item's target value (represented in the leaves). It is one of the predictive modelling approaches used in statistics, data mining and machine learning.
+
+----------------------------------------------------------------------------------
+2. 
+
+Each binary classifier in an ensemble makes predictions on an input x as listed in the table below. Based on the ensemble coefficients also listed in the table, what is the final ensemble model's prediction for x?
+	Classifier coefficient wt	Prediction for x
+Classifier 1	0.61	+1
+Classifier 2	0.53	-1
+Classifier 3	0.88	-1
+Classifier 4	0.34	+1
+
++1
+
+-1
+----------------------------------------------------------------------------------
+sum(Wt x pred(x)) = 0.61 x 1 + 0.53 x -1 + 0.88 x -1 + 0.34 x +1 = -0.46
+sign(-0.46) = -1
+answer : -1
+
+Refer lecture 'Ensemble classifiers', worked example on slide 10. generic formula on slide 12.
+
+----------------------------------------------------------------------------------
+3. 
+
+(True/False) Boosted trees tend to be more robust to overfitting than decision trees.
+
+True
+
+False
+----------------------------------------------------------------------------------
+ANSWER : True [CORRECT]
+refer slide 62, lecture 'Overfitting in boosting'
+----------------------------------------------------------------------------------
+Q3 (alternative question)
+(True/False) Boosted decision stumps is a linear classifier.
+True
+
+False
+----------------------------------------------------------------------------------
+https://en.wikipedia.org/wiki/Linear_classifier
+" A linear classifier achieves this by making a classification decision based on the value of a linear combination of the characteristics. An object's characteristics are also known as feature values and are typically presented to the machine in a vector called a feature vector. Such classifiers work well for practical problems such as document classification, and more generally for problems with many variables (features), reaching accuracy levels comparable to non-linear classifiers while taking less time to train and use."
+
+https://en.wikipedia.org/wiki/Decision_stump [not really useful]
+"A decision stump is a machine learning model consisting of a one-level decision tree.[1] That is, it is a decision tree with one internal node (the root) which is immediately connected to the terminal nodes (its leaves). A decision stump makes a prediction based on the value of just a single input feature. Sometimes they are also called 1-rules."
+
+https://en.wikipedia.org/wiki/Boosting_(machine_learning)
+"most boosting algorithms consist of iteratively learning weak classifiers with respect to a distribution and adding them to a final strong classifier. When they are added, they are typically weighted in some way that is usually related to the weak learners' accuracy. After a weak learner is added, the data are reweighted: examples that are misclassified gain weight and examples that are classified correctly lose weight (some boosting algorithms actually decrease the weight of repeatedly misclassified examples, e.g., boost by majority and BrownBoost). Thus, future weak learners focus more on the examples that previous weak learners misclassified."
+
+
+refer lecture 'Ensemble classifiers'
+https://www.coursera.org/learn/ml-classification/lecture/IAous/ensemble-classifiers
+MT notes : once the co-efficients are learnt, the prediction is made in a very similar manner to logistic regression or linear classifier.
+
+
+
+----------------------------------------------------------------------------------
+4. 
+
+(True/False) AdaBoost focuses on data points it incorrectly predicted by increasing those weights in the data set.
+
+True
+
+False
+----------------------------------------------------------------------------------
+ANSWER : True
+
+refer lecture 'Weighted error' 
+Weighted Classification error, slide 29.
+refer lecture 'Reweighing data to focus on mistakes' slide 36
+if prediction is correct f(x)is correct, multiply by exp(-wt), will be <=1.0
+if prediction is wrong f(x)is correct, multiply by exp(wt), will be >1.0
+----------------------------------------------------------------------------------
+Q5. 
+
+In an iteration in AdaBoost, recall that learning the coefficient wt for learned weak learner ft is calculated by
+
+12ln1−weighted_error(ft)weighted_error(ft)
+
+If the weighted error of ft is equal to .25, what is the value of wt? Round your answer to 2 decimal places.
+----------------------------------------------------------------------------------
+attempt #2 : 0.55
+refer notebook 'week_5_quiz_working'
+----------------------------------------------------------------------------------
+Q5. (alternate question)
+Let wt   (w subscript t) be the coefficient for a weak learner ft  
+(f subscript t). 
+
+Which of the following conditions must be true so that wt>0 ?
+
+weighted_error(ft)<.25
+
+weighted_error(ft)<.5
+
+weighted_error(ft)>.75
+
+weighted_error(ft)>.5
+----------------------------------------------------------------------------------
+NB: example calcs for reference
+calcWt(0.25) =  0.549
+calcWt(0.49) =  0.02
+calcWt(0.5)  =  0.0
+calcWt(0.51) =  -0.02
+calcWt(0.75) =  -0.549
+
+NB: formula is 0.5 * math.log((1-weightedError)/weightedError)
+
+when weightedError = 0.5 this becomes
+
+0.5 * math.log((1-0.5)/0.5)
+0.5 * math.log((0.5)/0.5)
+0.5 * math.log(1)
+NB: log(1) = 0
+
+when weightedError = 0.25 this becomes
+
+0.5 * math.log((1-0.25)/0.25)
+0.5 * math.log((0.75)/0.25)
+0.5 * math.log(3)
+NB: log(3) = 0.477
+
+when weightedError = 0.75 this becomes
+
+0.5 * math.log((1-0.75)/0.75)
+0.5 * math.log((0.25)/0.75)
+0.5 * math.log(1/3)
+NB: log(3) = -0.477
+NBB: log of any number <1 will be -ive.
+
+ie: if weightedError > 0.5
+then (1-weightedError)/weightedError will be <1
+then log((1-weightedError)/weightedError)  will be <1
+
+answer : weighted_error(ft)<.5
+----------------------------------------------------------------------------------
+6. 
+
+Which of the following classifiers is most accurate as computed on a weighted dataset? A classifier with:
+
+weighted error = 0.1
+
+weighted error = 0.3
+
+weighted error = 0.5
+
+weighted error = 0.7
+
+weighted error = 0.99
+----------------------------------------------------------------------------------
+refer calc method on slide 30.
+
+weighted error = 0.1 yields highest value of w^t.
+0.1			1.09861228866811
+0.3			0.423648930193602
+0.5			0
+0.7			-0.423648930193602
+0.99		-2.29755992506729
+
+answer : weighted error = 0.1 [CORRECT]
+----------------------------------------------------------------------------------
+7. 
+
+Imagine we are training a decision stump in an iteration of AdaBoost, and we are at a node. Each data point is (x1, x2, y), where x1,x2 are features, and y is the label. Also included are the weights of the data. The data at this node is:
+
+Weight	x1	x2	y
+--------------------
+0.3	    0	1	+1
+0.35	1	0	-1
+0.1	    0	1	+1
+0.25	1	1	+1
+--------------------
+
+Question as copied in earlier wording : 
+[Suppose we assign the same class label to all data in this node. (Pick the class label with the greater total weight.) What is the weighted error at the node? Round your answer to 2 decimal places.  ]
+
+Question as worded on 4th Feb. nb: different question to previously.
+
+Suppose we split on feature x2. 
+Calculate the weighted error of this split. 
+Round your answer to 2 decimal places.
+
+
+----------------------------------------------------------------------------------
+answer : sum(weight(x1+x2)) = 0.55 [previous attempt WRONG!!!]NB: question changed.
+
+sum(weight(x2)) = 0.3 x 1 + 0.35 x 0 + 0.1 x 1 + 0.25 x 1 = 0.3 + 0.1 + 0.25 = 0.65
+attempt 2 answer = 0.65
+----------------------------------------------------------------------------------
+8. 
+
+After each iteration of AdaBoost, the weights on the data points are typically normalized to sum to 1. This is used because
+
+of issues with numerical instability (underflow/overflow)
+
+the weak learners can only learn with normalized weights
+
+none of the above
+----------------------------------------------------------------------------------
+refer lecture 'Normalizing weights' @ 1:52, slide 40.
+https://www.coursera.org/learn/ml-classification/lecture/LqKAF/normalizing-weights
+
+answer : "of issues with numerical instability (underflow/overflow)"  [TRUE]
+
+----------------------------------------------------------------------------------
+9. 
+
+Consider the following 2D dataset with binary labels.
+
+We train a series of weak binary classifiers using AdaBoost. In one iteration, the weak binary classifier produces the decision boundary as follows:
+
+Which of the five points (indicated in the second figure) will receive higher weight in the following iteration? Choose all that apply.
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+----------------------------------------------------------------------------------
+refer lecture 'Example of AdaBoost in action' @ slide 44.
+https://www.coursera.org/learn/ml-classification/lecture/um0cX/example-of-adaboost-in-action
+node 1 is positive and correctly in positive area.
+nodes 4 & 5 are negative and correctly in negative area.
+nodes 2 & 3 are positive and incorrectly in negative area.
+node 3  is further from boundary than node 2, so node 3 will be weighted more.
+
+answer : 3 [WRONG!!!]
+
+attempt 2
+#4 is closest to the decision boundary
+thus #4 will have smallest error
+0.5 * math.log((1-error)/error) 
+will have largest weight after formula applied.
+
+attempt #3
+item 1 is positive and in predicted positive area, not weighted. 
+items 4 & 5 are negative and in predicted negative area, not weighted.
+items 2&3 are positive in predicted negative area, these will be weighted.
+answer = 2
+----------------------------------------------------------------------------------
+10. 
+
+Suppose we are running AdaBoost using decision tree stumps. At a particular iteration, the data points have weights according the figure. (Large points indicate heavy weights.)
+
+Which of the following decision tree stumps is most likely to be fit in the next iteration?
+
+----------------------------------------------------------------------------------
+- the first split puts the large weighted points on correct sides of split.
+- second split heavily weighted positive on negative side of split, several smaller weighted positive points on negative side of split, several small weighted negatives on positive side of split + medium weighted negative on neg side of split - this is obviously a bad split.
+- third split is also an obviously bad split.
+
+answer: first split. [CORRECT]
+
+----------------------------------------------------------------------------------
+11. 
+
+(True/False) AdaBoost can boost any kind of classifier, not just a decision tree stump.
+
+True
+
+False
+----------------------------------------------------------------------------------
+ANSWER = TRUE [CORRECT]
+
+http://machinelearningmastery.com/boosting-and-adaboost-for-machine-learning/
+"AdaBoost can be used to boost the performance of any machine learning algorithm. It is best used with weak learners. These are models that achieve accuracy just above random chance on a classification problem."
+
+https://en.wikipedia.org/wiki/AdaBoost
+"can be used in conjunction with many other types of learning algorithms to improve their performance. The output of the other learning algorithms ('weak learners') is combined into a weighted sum that represents the final output of the boosted classifier. AdaBoost is adaptive in the sense that subsequent weak learners are tweaked in favor of those instances misclassified by previous classifiers. "
+----------------------------------------------------------------------------------
