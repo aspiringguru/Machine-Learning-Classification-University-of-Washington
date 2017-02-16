@@ -1,0 +1,156 @@
+Scaling to Huge Datasets & Online Learning
+
+10 questions
+-------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------
+1. 
+(True/False) Stochastic gradient ascent often requires fewer passes over the dataset than batch gradient ascent to achieve a similar log likelihood.
+
+True
+
+False
+-------------------------------------------------------------------------------------
+True   [CORRECT]
+-------------------------------------------------------------------------------------
+2. 
+(True/False) Choosing a large batch size results in less noisy gradients
+
+True
+
+False
+-------------------------------------------------------------------------------------
+True   [CORRECT]
+-------------------------------------------------------------------------------------
+3. 
+(True/False) The set of coefficients obtained at the last iteration represents the best coefficients found so far.
+
+True
+
+False
+-------------------------------------------------------------------------------------
+FALSE   [CORRECT]
+-------------------------------------------------------------------------------------
+4. 
+Suppose you obtained the plot of log likelihood below after running stochastic gradient ascent.
+
+
+Which of the following actions would help the most to improve the rate of convergence?
+
+Increase step size
+
+Decrease step size
+
+Decrease batch size
+-------------------------------------------------------------------------------------
+refer slide 53
+answer = decrease step size   [CORRECT]
+-------------------------------------------------------------------------------------
+5. 
+Suppose you obtained the plot of log likelihood below after running stochastic gradient ascent.
+
+
+Which of the following actions would help to improve the rate of convergence?
+
+Increase batch size
+
+Increase step size
+
+Decrease step size
+-------------------------------------------------------------------------------------
+refer slide 51.
+purple line = step size is too small, takes too long to converge.
+to improve rate of convergance : increase step size.   [CORRECT]
+-------------------------------------------------------------------------------------
+6. 
+Suppose it takes about 1 milliseconds to compute a gradient for a single example. You run an online advertising company and would like to do online learning via mini-batch stochastic gradient ascent. If you aim to update the coefficients once every 5 minutes, how many examples can you cover in each update? Overhead and other operations take up 2 minutes, so you only have 3 minutes for the coefficient update.
+
+Enter answer here
+-------------------------------------------------------------------------------------
+3 minutes for coefficient update x 60 seconds x 1 millisecond to compute gradient for a single example = 180,000 gradient examples can be calculated.
+refer slide 19: t=time to contribute contribution of x, N data points. 
+gradient requires N x t time to calc 1 step of gradient
+stochastic gradient requires t time to calc 1 step of gradient. (ie: not affected by number of data points)
+
+ANSWER = 180,000 [CORRECT]
+
+https://www.coursera.org/learn/machine-learning/lecture/9zJUs/mini-batch-gradient-descent
+
+-------------------------------------------------------------------------------------
+7. 
+In search for an optimal step size, you experiment with multiple step sizes and obtain the following convergence plot.
+
+
+Which line corresponds to step sizes that are smaller than the best? Select all that apply.
+
+(1)
+
+(2)
+
+(3)
+
+(4)
+
+(5)
+-------------------------------------------------------------------------------------
+refer slide 52
+5 = largest step size   [7e-1]
+3 = medium step size    [3e-1]
+1 = smallest step size. [1e-1] (best)
+refer slide 51
+4 = smallest step size [1e-3] too slow to converge not as much oscilation as 'best'
+2 = [1e-2] slow to converge, less oscilation as 'best'
+1 = [1e-1] 'optimum' solution 
+--------
+answer = smaller than 1e-1 are :  option 4 and 2.    [CORRECT]
+-------------------------------------------------------------------------------------
+variant on Q7
+In search for an optimal step size, you experiment with multiple step sizes and obtain the following convergence plot.
+Which line corresponds to the best step size?
+
+answer = 1 = smallest step size. [1e-1] (best) [CORRECT]
+
+-------------------------------------------------------------------------------------
+8. 
+Suppose you run stochastic gradient ascent with two different batch sizes. Which of the two lines below corresponds to the smaller batch size (assuming both use the same step size)?
+
+
+
+(1)
+
+(2)
+-------------------------------------------------------------------------------------
+refer slide 64
+too small batch size will be noisy and may not converge.
+answer = 1  [CORRECT]
+-------------------------------------------------------------------------------------
+9. 
+Which of the following is NOT a benefit of stochastic gradient ascent over batch gradient ascent? Choose all that apply.
+[multiple choice]
+
+Each coefficient step is very fast.
+
+Log likelihood of data improves monotonically.
+
+Stochastic gradient ascent can be used for online learning.
+
+Stochastic gradient ascent can achieve higher likelihood than batch gradient ascent for the same amount of running time.
+
+Stochastic gradient ascent is highly robust with respect to parameter choices.
+-------------------------------------------------------------------------------------
+[TRUE] Each coefficient step is very fast.
+[FALSE] Log likelihood of data improves monotonically.
+[TRUE]    Stochastic gradient ascent can be used for online learning.
+[TRUE]  Stochastic gradient ascent can achieve higher likelihood than batch gradient ascent for the same amount of running time.
+[FALSE]   Stochastic gradient ascent is highly robust with respect to parameter choices.
+NB: answer selects the FALSE checkboxes.   [CORRECT]
+-------------------------------------------------------------------------------------
+10. 
+Suppose we run the stochastic gradient ascent algorithm described in the lecture with batch size of 100. To make 10 passes over a dataset consisting of 15400 examples, how many iterations does it need to run?
+
+Enter answer here
+-------------------------------------------------------------------------------------
+
+15400/100 = 154 batches.
+10 passes x 154 batches = 1540  [CORRECT]
+-------------------------------------------------------------------------------------
